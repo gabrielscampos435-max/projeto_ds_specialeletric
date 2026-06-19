@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>DS Special Eletric</title>
+</head>
+<body>
+    <nav id="topnav">
+        <div class="nav-logo" onclick="goTo('home')">DS SPECIAL</div>
+        <div class="nav-links">
+            <button class="nav-btn active" onclick="goTo('home')">Site</button>
+            <button class="nav-btn" onclick="goTo('orcamento')">Orçamento</button>
+            <button class="nav-btn" onclick="goTo('agendamento')">Agendar</button>
+            <button class="nav-btn" onclick="goTo('servicos')">Serviços</button>
+            <button class="nav-btn" onclick="goTo('feedback')">Feedback</button>
+            <button class="nav-btn" onclick="window.location.href='admin.html'">Admin</button>
+            <button class="nav-btn nav-wpp" onclick="openWpp('Olá! Vim pelo site e gostaria de mais informações.')">WhatsApp</button>
+        </div>
+    </nav>
+
+    <!-- HOME -->
+    <div id="page-home" class="page active">
+            <section id="hero">
+                <div class="hero-bg"></div>
+                <p class="hero-eyebrow">Injeção eletrônica pra quem anda forte</p>
+                <h1 class="hero-title">DS SPECIAL<br><span>ELETRIC</span></h1>
+                <p class="hero-sub">Diagnóstico preciso, acerto fino e elétrica automotiva para veículos de rua, arrancada e preparação.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="goTo('orcamento')">Solicitar Orçamento</button>
+                    <button class="btn-secondary" onclick="goTo('agendamento')">Agendar Avaliação</button>
+                </div>
+            </section>
+
+            <!-- SERVIÇOS RESUMO -->
+        <div class="section">
+                <p class="section-title">Serviços</p>
+                <div class="divider"></div>
+                <div class="services-grid">
+                    <div class="svc-card"><div class="svc-icon">🔬</div>
+                    <div class="svc-name">Diagnóstico Scanner</div>
+                    <div class="svc-desc">Leitura de falhas, sensores e módulos com scanner profissional</div>
+                    <span class="svc-cta" onclick="openWpp('Quero um diagnóstico com scanner')">Solicitar →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">⚡</div>
+                    <div class="svc-name">Injeção Eletrônica</div>
+                    <div class="svc-desc">Limpeza de bicos, reparo e calibração do sistema de injeção</div>
+                    <span class="svc-cta" onclick="openWpp('Quero serviço de injeção eletrônica')">Solicitar →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">🔌</div>
+                    <div class="svc-name">Elétrica Automotiva</div>
+                    <div class="svc-desc">Instalação, rastreadores, sonorização e reparos elétricos</div>
+                    <span class="svc-cta" onclick="openWpp('Preciso de elétrica automotiva')">Solicitar →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">🏎️</div>
+                    <div class="svc-name">Acerto e Preparação</div>
+                    <div class="svc-desc">Acerto fino para arrancada, street e uso diário de alto desempenho</div>
+                    <span class="svc-cta" onclick="openWpp('Quero acerto/preparação no meu carro')">Solicitar →</span>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:1.5rem"><button class="btn-secondary" onclick="goTo('servicos')">Ver todos os serviços</button></div>
+        </div>
+        <!-- TRABALHOS REALIZADOS -->
+        <section class="section trabalhos-section" id="trabalhos">
+            <div class="section-head centered">
+                <p class="section-title">Trabalhos Realizados</p>
+                <p class="section-sub">Alguns serviços que mostram na prática o cuidado e a precisão da DS Special Eletric.</p>
+                <div class="divider center"></div>
+            </div>
+
+            <div class="trabalhos-grid">
+                <article class="trabalho-card" onclick="openVideoModal('https://www.youtube.com/embed/COLE_O_ID_DO_VIDEO_AQUI')">
+                    <div class="trabalho-thumb">
+                        <img src="img/trabalho-1.jpg" alt="Diagnóstico automotivo com scanner">
+                        <div class="play-overlay">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+
+                    <div class="trabalho-content">
+                        <span class="trabalho-tag">Diagnóstico</span>
+                        <h3>Diagnóstico com scanner</h3>
+                        <p>Leitura de falhas, análise de sensores e identificação precisa do problema antes da manutenção.</p>
+                        <button type="button" onclick="event.stopPropagation(); openVideoModal('https://www.youtube.com/embed/COLE_O_ID_DO_VIDEO_AQUI')">
+                            Assistir vídeo
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="trabalho-card" onclick="openVideoModal('https://www.youtube.com/embed/COLE_O_ID_DO_VIDEO_AQUI')">
+                    <div class="trabalho-thumb">
+                        <img src="img/trabalho-2.jpg" alt="Serviço de injeção eletrônica">
+                        <div class="play-overlay">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+
+                    <div class="trabalho-content">
+                        <span class="trabalho-tag">Injeção eletrônica</span>
+                        <h3>Acerto e manutenção de injeção</h3>
+                        <p>Serviço focado em funcionamento limpo, resposta do motor e correção de falhas no sistema.</p>
+                        <button type="button" onclick="event.stopPropagation(); openVideoModal('https://www.youtube.com/embed/COLE_O_ID_DO_VIDEO_AQUI')">
+                            Assistir vídeo
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="trabalho-card" onclick="openVideoModal('https://www.youtube.com/embed/COLE_O_ID_DO_VIDEO_AQUI')">
+                    <div class="trabalho-thumb">
+                        <img src="img/trabalho-3.jpg" alt="Serviço de elétrica automotiva">
+                        <div class="play-overlay">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+
+                    <div class="trabalho-content">
+                        <span class="trabalho-tag">Elétrica automotiva</span>
+                        <h3>Reparo elétrico automotivo</h3>
+                        <p>Correção de falhas elétricas, revisão de chicote, módulos e componentes do veículo.</p>
+                        <button type="button" onclick="event.stopPropagation(); openVideoModal('https://www.youtube.com/embed/COLE_O_ID_DO_VIDEO_AQUI')">
+                            Assistir vídeo
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- DEPOIMENTOS -->
+        <div class="section">
+            <p class="section-title">O que dizem os clientes</p>
+            <div class="divider"></div>
+            <div class="dep-grid" id="feedback-list">
+                <div class="dep-card">
+                    <div class="dep-stars">★★★★★</div>
+                    <p class="dep-text">"Levei meu Vectra sem potência, saiu funcionando perfeitamente. Diagnóstico rápido e certeiro."</p>
+                    <span class="dep-author">— Rodrigo M., São Paulo</span>
+                </div>
+                <div class="dep-card">
+                    <div class="dep-stars">★★★★★</div>
+                    <p class="dep-text">"Acerto na injeção do meu Gol preparado ficou show. Atendimento rápido e transparente."</p>
+                    <span class="dep-author">— Lucas F., Santo André</span>
+                </div>
+                <div class="dep-card">
+                    <div class="dep-stars">★★★★★</div>
+                    <p class="dep-text">"Já indiquei para três amigos. Trabalho limpo, orçamento honesto e resultado na mão."</p>
+                    <span class="dep-author">— Anderson P., SP</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORÇAMENTO -->
+    <div id="page-orcamento" class="page">
+        <div class="section" style="max-width:640px">
+                <p class="section-title">Solicitar Orçamento</p>
+                <p class="section-sub">Preencha o formulário — retornamos pelo WhatsApp em até 2h</p>
+                <div class="divider"></div>
+                <div class="form-box">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Nome</label>
+                            <input class="form-input" id="orc-nome" placeholder="Seu nome completo"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">WhatsApp</label>
+                            <input class="form-input" id="orc-wpp" placeholder="(11) 99999-9999" maxlength="15"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Modelo do Carro</label>
+                            <input class="form-input" id="orc-carro" placeholder="Ex: Volkswagen Gol, Honda Civic..."/>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Ano</label>
+                            <input class="form-input" id="orc-ano" placeholder="Ex: 2015" maxlength="4"/>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label class="form-label">Problema Apresentado</label>
+                            <textarea class="form-input" id="orc-problema" placeholder="Descreva o que está acontecendo com o veículo..." style="height:80px;resize:vertical"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Serviço Desejado</label>
+                            <select class="form-input" id="orc-servico">
+                                <option value="" disabled selected hidden>Selecione...</option>
+                                <option>Diagnóstico com Scanner</option>
+                                <option>Injeção Eletrônica</option>
+                                <option>Elétrica Automotiva</option>
+                                <option>Limpeza de Bicos</option>
+                                <option>Acerto / Preparação</option>
+                                <option>Revisão de Sensores</option>
+                                <option>Instalação / Manutenção</option>
+                                <option>Orçamento Personalizado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Melhor Horário para Contato</label>
+                        <select class="form-input" id="orc-horario">
+                            <option value="" disabled selected hidden>Selecione...</option>
+                            <option>Manhã (8h–12h)</option>
+                            <option>Tarde (12h–17h)</option>
+                            <option>Qualquer horário</option>
+                        </select>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label class="form-label">Tem foto ou vídeo do problema?</label>
+                            <select class="form-input" id="orc-midia">
+                                <option value="" disabled selected hidden>Selecione...</option>
+                                <option>Sim, posso enviar pelo WhatsApp</option>
+                                <option>Não tenho no momento</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary" style="width:100%;margin-top:.5rem;font-size:1.05rem" onclick="submitOrcamento()">Enviar Solicitação</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AGENDAMENTO -->
+    <div id="page-agendamento" class="page">
+        <div class="section" style="max-width:640px">
+            <p class="section-title">Agendar Avaliação</p>
+            <p class="section-sub">Traga seu veículo para diagnóstico — horário confirmado pelo WhatsApp</p>
+            <div class="divider"></div>
+            <div class="form-box">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nome</label>
+                        <input class="form-input" id="ag-nome" placeholder="Seu nome"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Telefone</label>
+                        <input class="form-input" id="ag-tel" placeholder="(11) 99999-9999" maxlength="15"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Carro</label>
+                        <input class="form-input" id="ag-carro" placeholder="Modelo e ano"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Problema</label>
+                        <input class="form-input" id="ag-problema" placeholder="Resumo do problema"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Data</label>
+                        <input class="form-input" id="ag-data" type="date"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Horário</label>
+                        <select class="form-input" id="ag-hora" disabled>
+                            <option value="" disabled selected hidden>Selecione uma data primeiro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label class="form-label">Observações</label>
+                        <textarea class="form-input" id="ag-obs" placeholder="Informações adicionais..." style="height:60px;resize:vertical"></textarea>
+                    </div>
+                </div>
+                <button class="btn-primary" style="width:100%;margin-top:.5rem;font-size:1.05rem" onclick="submitAgendamento()">Confirmar Pré-Agendamento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVIÇOS -->
+    <div id="page-servicos" class="page">
+        <div class="section">
+            <p class="section-title">Catálogo de Serviços</p>
+            <p class="section-sub">Clique em qualquer serviço para solicitar orçamento pelo WhatsApp</p>
+            <div class="divider"></div>
+            <div class="services-grid">
+                <div class="svc-card">
+                    <div class="svc-icon">🔬</div>
+                    <div class="svc-name">Diagnóstico com Scanner</div>
+                    <div class="svc-desc">Leitura completa de DTCs, análise de sensores, módulos e sistema OBD. Identifica falhas antes de virar problema grave.</div>
+                    <span class="svc-cta" onclick="openWpp('Quero diagnóstico com scanner')">Orçamento →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">⚡</div>
+                    <div class="svc-name">Injeção Eletrônica</div>
+                    <div class="svc-desc">Manutenção, reparo e calibração completa do sistema de injeção. Inclui bicos, bomba, pressostato e sensores.</div>
+                    <span class="svc-cta" onclick="openWpp('Quero serviço de injeção eletrônica')">Orçamento →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">🔌</div>
+                    <div class="svc-name">Elétrica Automotiva</div>
+                    <div class="svc-desc">Instalação de módulos, rastreadores, som, alarmes e reparos em chicote elétrico.</div>
+                    <span class="svc-cta" onclick="openWpp('Preciso de elétrica automotiva')">Orçamento →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">💧</div>
+                    <div class="svc-name">Limpeza de Bicos</div>
+                    <div class="svc-desc">Limpeza ultrassônica e teste de vazão dos bicos injetores. Recupera desempenho e economia de combustível.</div>
+                    <span class="svc-cta" onclick="openWpp('Quero limpeza de bicos')">Orçamento →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">🏎️</div>
+                    <div class="svc-name">Acerto e Preparação</div>
+                    <div class="svc-desc">Remapeamento, acerto fino de injeção e ignição para arrancada, street e uso diário de alto desempenho.</div>
+                    <span class="svc-cta" onclick="openWpp('Quero acerto/preparação')">Orçamento →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">🔧</div>
+                    <div class="svc-name">Instalação e Manutenção</div>
+                    <div class="svc-desc">Instalação de kits de injeção, conversões e manutenção preventiva de componentes eletrônicos.</div>
+                    <span class="svc-cta" onclick="openWpp('Quero instalação/manutenção')">Orçamento →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">📡</div>
+                    <div class="svc-name">Revisão de Sensores</div>
+                    <div class="svc-desc">Teste e substituição de sensores: MAP, TPS, O2, temperatura, rotação e posição de virabrequim.</div>
+                    <span class="svc-cta" onclick="openWpp('Quero revisão de sensores')">Orçamento →</span>
+                </div>
+                <div class="svc-card">
+                    <div class="svc-icon">💬</div>
+                    <div class="svc-name">Orçamento Personalizado</div>
+                    <div class="svc-desc">Seu carro tem necessidade específica? Descreva o projeto e receba uma proposta exclusiva.</div>
+                    <span class="svc-cta" onclick="openWpp('Quero um orçamento personalizado')">Solicitar →</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEEDBACK -->
+    <div id="page-feedback" class="page">
+        <div class="section" style="max-width:640px">
+            <p class="section-title">Deixe seu Feedback</p>
+            <p class="section-sub">Sua avaliação ajuda outros clientes a conhecerem nosso trabalho</p>
+            <div class="divider"></div>
+            <div class="form-box">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Nome</label>
+                        <input class="form-input" id="fb-nome" placeholder="Seu nome"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Cidade</label>
+                        <input class="form-input" id="fb-cidade" placeholder="Ex: São Paulo"/>
+                    </div>
+                </div>
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label class="form-label">Nota</label>
+                        <select class="form-input" id="fb-nota">
+                            <option value="" disabled selected hidden>Selecione...</option>
+                            <option value="5">★★★★★ - Excelente</option>
+                            <option value="4">★★★★ - Muito bom</option>
+                            <option value="3">★★★ - Bom</option>
+                            <option value="2">★★ - Regular</option>
+                            <option value="1">★ - Ruim</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label class="form-label">Comentário</label>
+                        <textarea class="form-input" id="fb-texto" placeholder="Conte como foi sua experiência..." style="height:100px;resize:vertical"></textarea>
+                    </div>
+                </div>
+                <button class="btn-primary" style="width:100%;margin-top:.5rem;font-size:1.05rem" onclick="submitFeedback()">Enviar Feedback</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAIL MODAL -->
+    <div id="detail-modal">
+        <div class="modal-box" id="modal-content"></div>
+    </div>
+    <div id="toast"></div>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h2>DS SPECIAL</h2>
+                <p>
+                    Diagnóstico preciso, elétrica automotiva e injeção eletrônica para quem busca desempenho, confiança e atendimento direto.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Atendimento</h3>
+
+                <div class="footer-info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <span>Área de atendimento</span>
+                        <strong>Grande São Paulo</strong>
+                        <small>Agendamentos presenciais</small>
+                    </div>
+                </div>
+
+                <div class="footer-info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <span>Horários</span>
+                        <strong>Seg-Sex 8h-18h</strong>
+                        <small>Sáb 8h-13h</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contato</h3>
+
+                <div class="footer-info-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <span>WhatsApp</span>
+                        <strong>+55 (11) 99374-9189</strong>
+                        <small>Orçamentos e agendamentos</small>
+                    </div>
+                </div>
+
+                <div class="footer-info-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <div>
+                        <span>Instagram</span>
+                        <strong>@ds_specialeletric</strong>
+                        <small>Acompanhe os trabalhos</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-column footer-social-column">
+                <h3>Redes sociais</h3>
+
+                <div class="footer-socials">
+                    <button onclick="openWpp('Olá! Vim pelo site e gostaria de atendimento.')" aria-label="Falar no WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </button>
+
+                    <a href="https://www.instagram.com/ds_specialeletric/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+
+                <p class="footer-social-note">Atendimento direto pelo WhatsApp</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 DS Special Eletric. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <button class="floating-wpp" onclick="openWpp('Olá! Vim pelo site e gostaria de atendimento.')" aria-label="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-backdrop" onclick="closeVideoModal()"></div>
+
+        <div class="video-modal-box">
+            <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Fechar vídeo">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="video-frame-wrap">
+                <iframe
+                    id="video-frame"
+                    src=""
+                    title="Vídeo do trabalho realizado"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js" charset="UTF-8"></script>
+</body>
+</html>

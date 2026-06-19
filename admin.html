@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Painel Admin | DS Special Eletric</title>
+</head>
+<body>
+    <nav id="topnav">
+        <div class="nav-logo" onclick="window.location.href='index.html'">DS SPECIAL</div>
+        <div class="nav-links">
+            <button class="nav-btn" onclick="window.location.href='index.html'">Site</button>
+            <button class="nav-btn active">Admin</button>
+        </div>
+    </nav>
+    <div id="page-admin" class="page active">
+        <div id="detail-modal">
+            <div class="modal-box" id="modal-content"></div>
+        </div>
+        <div id="toast"></div>
+        <div id="admin-login">
+            <div class="admin-login-title">PAINEL DS</div>
+            <div class="admin-login-sub">Acesso restrito ao proprietário</div>
+            <div class="login-error" id="login-err">Usuário ou senha inválidos</div>
+            <div class="form-group" style="margin-bottom:12px">
+                <label class="form-label">Usuário</label>
+                <input class="form-input" id="admin-user" type="text" autocomplete="username"/>
+            </div>
+            <div class="form-group" style="margin-bottom:12px">
+                <label class="form-label">Senha</label>
+                <input class="form-input" id="admin-pass" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"/>
+            </div>
+            <button class="btn-primary" style="width:100%" onclick="doLogin()">Entrar</button>
+        </div>
+        <div id="admin-panel">
+            <div class="admin-header">
+                <span class="admin-title">PAINEL ADMIN</span>
+                <button class="btn-secondary" style="font-size:.8rem;padding:8px 14px" onclick="doLogout()">Sair</button>
+            </div>
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="switchTab('dashboard')">Dashboard</button>
+                <button class="tab-btn" onclick="switchTab('orcamentos')">Orçamentos</button>
+                <button class="tab-btn" onclick="switchTab('agendamentos')">Agendamentos</button>
+                <button class="tab-btn" onclick="switchTab('feedbacks')">Feedbacks</button>
+            </div>
+            <div id="tab-dashboard" class="tab-content active">
+                <div class="dashboard-shell">
+                    <div class="dashboard-hero">
+                        <div>
+                            <span class="dashboard-eyebrow">Painel de controle</span>
+                            <h2>Visão Geral</h2>
+                            <p>Resumo das solicitações, agenda e atividades recentes.</p>
+                        </div>
+                        <div class="dashboard-quick-info">
+                            <span>Hoje</span>
+                            <strong id="dashboard-today-label"></strong>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid" id="stats-grid"></div>
+
+                    <div class="dashboard-layout">
+                        <section class="dashboard-panel pipeline-panel">
+                            <div class="panel-head">
+                                <div>
+                                    <h3>Pipeline de atendimento</h3>
+                                    <p>Distribuição das solicitações por status.</p>
+                                </div>
+                            </div>
+                            <div id="status-pipeline"></div>
+                        </section>
+
+                        <section class="dashboard-panel actions-panel">
+                            <div class="panel-head">
+                                <div>
+                                    <h3>Atenção agora</h3>
+                                    <p>Itens que precisam de acompanhamento.</p>
+                                </div>
+                            </div>
+                            <div id="quick-actions-list"></div>
+                        </section>
+                    </div>
+
+                    <section class="dashboard-panel recent-panel">
+                        <div class="panel-head">
+                            <div>
+                                <h3>Últimas solicitações</h3>
+                                <p>Orçamentos e agendamentos mais recentes.</p>
+                            </div>
+                        </div>
+
+                        <div class="filter-bar">
+                            <select class="filter-select" id="recent-type-filter" onchange="renderDashboard()">
+                                <option value="">Todos os tipos</option>
+                                <option value="orcamento">Orçamento</option>
+                                <option value="agendamento">Agendamento</option>
+                            </select>
+                            <select class="filter-select" id="recent-status-filter" onchange="renderDashboard()">
+                                <option value="">Todos os status</option>
+                                <option value="novo">Novo</option>
+                                <option value="respondido">Respondido</option>
+                                <option value="aguardando cliente">Aguardando Cliente</option>
+                                <option value="fechado">Fechado</option>
+                                <option value="perdido">Perdido</option>
+                            </select>
+                            <button class="action-btn" onclick="limparFiltrosDashboard()">Limpar filtro</button>
+                        </div>
+
+                        <div id="recent-list"></div>
+                    </section>
+                </div>
+            </div>
+            <div id="tab-orcamentos" class="tab-content">
+                <div class="filter-bar">
+                    <select class="filter-select" id="orc-filter" onchange="renderOrcamentos()">
+                        <option value="" disabled selected hidden>Todos os status</option>
+                        <option value="novo">Novo</option>
+                        <option value="respondido">Respondido</option>
+                        <option value="aguardando cliente">Aguardando Cliente</option>
+                        <option value="fechado">Fechado</option>
+                        <option value="perdido">Perdido</option>
+                    </select>
+                    <button class="action-btn" onclick="limparFiltroOrcamentos()">Limpar filtro</button>
+                </div>
+                <div id="orc-table-wrap"></div>
+            </div>
+            <div id="tab-agendamentos" class="tab-content">
+                <div id="ag-table-wrap"></div>
+            </div>
+            <div id="tab-feedbacks" class="tab-content">
+                <div class="filter-bar">
+                    <select class="filter-select" id="fb-filter" onchange="renderAdminFeedbacks()">
+                        <option value="">Todos os status</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="aprovado">Aprovado</option>
+                        <option value="reprovado">Reprovado</option>
+                    </select>
+                    <button class="action-btn" onclick="limparFiltroFeedbacks()">Limpar filtro</button>
+                </div>
+                <div id="feedback-table-wrap"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js" charset="UTF-8"></script>
+</body>
+</html>
